@@ -19,11 +19,15 @@ echo "Terraforming complete"
 sleep 10
 echo "Now let's do some magic!!!"
 echo "[web]" >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg 
-/usr/bin/terraform output | grep web | awk {'print $3'} | sed s/\"//g >> home/lvv/Documents/projects/Skills/ansibles/inventory.cfg
+/usr/bin/terraform putput | grep web | sed s/\"//g >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg
+#/usr/bin/terraform output | grep web | awk {'print $3'} | sed s/\"//g >> home/lvv/Documents/projects/Skills/ansibles/inventory.cfg
 echo "[app]" >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg 
-/usr/bin/terraform output | grep app | awk {'print $3'} | sed s/\"//g >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg
+/usr/bin/terraform putput | grep app | sed s/\"//g >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg
+#/usr/bin/terraform output | grep app | awk {'print $3'} | sed s/\"//g >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg
 echo "[balancer]" >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg 
-/usr/bin/terraform output | grep balancer | awk {'print $3'} | sed s/\"//g >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg 
+/usr/bin/terraform putput | grep balancer | sed s/\"//g  >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg
+#/usr/bin/terraform output | grep balancer | awk {'print $3'} | sed s/\"//g >> /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg 
+sed s/' '//g -i /home/lvv/Documents/projects/Skills/ansibles/inventory.cfg
 echo "Magic done, and you even didn't see it ((("
 sleep 10
 echo "Let's start another magic tricks"
