@@ -1,0 +1,18 @@
+---
+ - hosts: app
+   tasks:
+    - name: Install soft
+      become: true
+      apt:
+        pkg:
+          - docker
+          - docker.io
+          - docker-compose
+        state: present
+
+    - name: start service docker
+      become: true
+      service:
+        name: docker
+        state: started
+        enabled: yes
